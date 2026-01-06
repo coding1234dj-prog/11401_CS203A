@@ -32,6 +32,7 @@
 * Deque
 * Stack
 
+* 加上AI統整
 ---
 
 ## 💻 練習程式碼（Practice Code）
