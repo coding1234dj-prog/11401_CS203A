@@ -105,4 +105,5 @@ data-structure-notes/
 
 ## 🙋 作者（Author）
 
-* Name：劉弘翔   AI assist
+* Name：劉弘翔
+*       AI Assist
