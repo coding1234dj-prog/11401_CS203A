@@ -76,32 +76,6 @@
 - BFS with 多個起點
 ```
 
-## 面試高頻問題
-
-### Q1: 為什麼 Vector 尾部插入是 O(1) 攤銷？
-**答案：** 容量不足時需要重新配置（通常 2 倍擴容），單次 O(n) 但分攤到多次操作後平均 O(1)。
-
-### Q2: LinkedList 什麼情況下比 Vector 快？
-**答案：** 
-- 已知位置的插入/刪除
-- 頻繁的頭部操作
-- 需要穩定的插入時間（不會有 Vector 的擴容延遲）
-
-### Q3: Deque 和 Vector 的本質區別？
-**答案：** 
-- Deque 通常使用分段陣列（map of blocks）
-- Vector 必須連續，Deque 可以分段
-- Deque 兩端都能 O(1)，Vector 只有尾端
-
-### Q4: 為什麼現代系統更偏好 Array/Vector？
-**答案：**
-- CPU 快取行為：連續記憶體預取效率高
-- 記憶體局部性：降低 cache miss
-- LinkedList 的指標開銷大（每個節點額外 8-16 bytes）
-- 現代處理器對連續資料的優化極好
-
-## 實務建議
-
 ### 預設選擇
 ```
 不確定時的最佳選擇：Vector/ArrayList
@@ -140,20 +114,3 @@ LinkedList: 彈簧鏈條 → 彎曲容易但找東西慢
 Deque:    雙頭蛇 → 兩邊都靈活
 ```
 
-## 延伸思考
-
-1. **為什麼 Java 的 ArrayList 叫 List 不叫 Vector？**
-   - 歷史原因：Java 原本的 Vector 是線程安全的（synchronized），效能差
-   - ArrayList 是後來加入的非同步版本
-
-2. **C++ vector 真的是最好的預設嗎？**
-   - 對小物件（≤64 bytes）絕對是
-   - 大物件考慮 vector<unique_ptr<T>> 避免複製
-
-3. **為什麼資料庫索引不用 Vector？**
-   - 插入成本太高（O(n)）
-   - 實際使用 B-Tree（平衡的多路搜尋樹）
-
----
-
-**下一步：** 學習容器操作時間複雜度總表
